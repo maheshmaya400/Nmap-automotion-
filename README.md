@@ -85,8 +85,8 @@ pkg update && pkg upgrade -y
 pkg install python nmap git -y
 
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/nmap-multi-scan.git
-cd nmap-multi-scan
+git clone https://github.com/maheshmaya400/Nmap-automotion-.git
+cd Nmap-automotion-
 
 # Run
 python nmap_tool.py
@@ -100,8 +100,8 @@ sudo apt update
 sudo apt install python3 nmap git -y
 
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/nmap-multi-scan.git
-cd nmap-multi-scan
+git clone https://github.com/maheshmaya400/Nmap-automotion-.git
+cd Nmap-automotion-
 
 # Run
 python3 nmap_tool.py
@@ -117,8 +117,8 @@ sudo python3 nmap_tool.py
 brew install python nmap
 
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/nmap-multi-scan.git
-cd nmap-multi-scan
+git clone https://github.com/maheshmaya400/Nmap-automotion-.git
+cd Nmap-automotion-
 
 # Run
 python3 nmap_tool.py
