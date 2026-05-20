@@ -34,8 +34,8 @@ termux-setup-storage
 
 ```bash
 # Clone the tool
-git clone https://github.com/YOUR_USERNAME/nmap-multi-scan.git
-cd nmap-multi-scan
+git clone https://github.com/maheshmaya400/Nmap-automotion-.git
+cd Nmap-automotion-
 
 # Run it
 python nmap_tool.py
