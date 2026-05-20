@@ -13,7 +13,12 @@
   Runs perfectly on <strong>Termux (Android)</strong>, Linux, and macOS.
 </p>
 
----
+--- 
+## 📸 Screenshot
+
+
+
+![NMAP Multi-Scan Tool](assets/banner.png)
 
 ## ⚡ Features
 
