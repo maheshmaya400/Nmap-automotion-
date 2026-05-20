@@ -17,7 +17,7 @@
 ## 📸 Screenshot
 
 <p align="center">
-  <img src="banner.png" width="700"/>
+  <img src="banner.jpg" width="700"/>
 </p>
 
 ## ⚡ Features
