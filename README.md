@@ -16,9 +16,9 @@
 --- 
 ## 📸 Screenshot
 
-
-
-![NMAP Multi-Scan Tool](assets/banner.png)
+<p align="center">
+  <img src="assets/banner.png" width="700"/>
+</p>
 
 ## ⚡ Features
 
