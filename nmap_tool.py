@@ -651,4 +651,87 @@ def colorize(line):
         return R + BD + "+- " + line + RS
     if line.startswith("Host is up"):
         return GR + line + RS
-    if line.startswith("Host is down") 
+    if line.startswith("Host is down") or line.startswith("Note:"):
+        return DR + line + RS
+    if line.startswith("|") or line.startswith("|_"):
+        return CY + line + RS
+    if line.startswith("MAC Address"):
+        return OR + line + RS
+    if "WARNING" in line or "ERROR" in line:
+        return YL + BD + line + RS
+    if line.startswith("Nmap done"):
+        return DG + BD + line + RS
+    return line
+
+# ──────────────────────────────────────
+# RUN SCAN
+# ──────────────────────────────────────
+def run_scan(scan, target):
+    print()
+    div("=", R, 65)
+    header = (
+        cc("  " + scan["icon"] + " ", scan["color"]) +
+        cc(scan["name"], WH, BD) +
+        cc("  >>  ", GY) +
+        cc(target, YL, BD)
+    )
+    print(header)
+    div("=", R, 65)
+    print()
+
+    cmd = ["nmap"] + scan["args"] + [target]
+    print(cc("  CMD: " + " ".join(cmd), GY, DM))
+    print()
+
+    try:
+        proc = subprocess.Popen(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+        )
+        for line in proc.stdout:
+            line = line.rstrip()
+            print("  " + colorize(line))
+        proc.wait()
+    except KeyboardInterrupt:
+        proc.terminate()
+        print(cc("\n  [!] Scan interrupted by user.", YL))
+    except Exception as e:
+        print(cc("  [X] Error: " + str(e), R))
+
+    print()
+    div("-", DR, 65)
+
+# ──────────────────────────────────────
+# MAIN
+# ──────────────────────────────────────
+def main():
+    clr()
+    print_banner()
+    check_nmap()
+    print_sysinfo()
+
+    arg = sys.argv[1] if len(sys.argv) > 1 else None
+    target, resolved = get_target(arg)
+
+    while True:
+        print_menu()
+        chosen = get_choice()
+
+        for scan in chosen:
+            run_scan(scan, target)
+
+        print()
+        try:
+            again = input(cc("  >> Run another scan? [Y/N]: ", LG)).strip().upper()
+        except (EOFError, KeyboardInterrupt):
+            print()
+            break
+        if again != "Y":
+            break
+
+    print(cc("\n  Done. Stay legal.\n", DR, BD))
+
+if __name__ == "__main__":
+    main()
